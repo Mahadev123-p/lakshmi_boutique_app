@@ -1,0 +1,13 @@
+{
+  "name": "lakshmi-boutique-app",
+  "version": "1.0.0",
+  "description": "Lakshmi Boutique - Premium Tailoring & Fashion Manager",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

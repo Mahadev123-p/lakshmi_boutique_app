@@ -1,0 +1,18 @@
+[build]
+  publish = "."
+
+# Clean URLs rule (strips .html from paths if present)
+[processing]
+  html_minifier = true
+  pretty_urls = true
+
+# Custom headers for caching assets
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/app.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"

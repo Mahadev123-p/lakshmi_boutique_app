@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lakshmi Boutique - Premium Tailoring & Fashion Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>Lakshmi Boutique Login</h2>
+
+            <input type="email" id="login-email" placeholder="Email">
+
+            <input type="password" id="login-password" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+        </div>
+    </div>
+
+    <div id="app-content" style="display:none;">
+
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h1>Lakshmi</h1>
+                <p>Boutique</p>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <button class="nav-btn active" onclick="switchPage('dashboard')">
+          <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          Home
+        </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn" onclick="switchPage('customers')">
+          <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          Customers
+        </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn" onclick="switchPage('add-customer')">
+          <svg viewBox="0 0 24 24"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          Add Customer
+        </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-btn" onclick="switchPage('backup')">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z"/></svg>
+          Backup & Restore
+        </button>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>© 2026 Lakshmi Boutique</p>
+                <p style="font-size: 0.6rem; opacity: 0.6; margin-top: 5px;">Tailoring Management System</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- ================= DASHBOARD PAGE ================= -->
+            <div id="page-dashboard" class="page-view active">
+                <div class="header">
+                    <div class="header-title">
+                        <h2>Boutique Dashboard</h2>
+                        <p>Welcome back! Here's a summary of Lakshmi Boutique today.</p>
+                    </div>
+                </div>
+
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <div class="hero-text">
+                        <h1>Lakshmi Boutique</h1>
+                        <p>Crafting Heritage, Stitching Dreams. Elegance tailored to your measurements.</p>
+                        <div style="display: flex; gap: 1rem;">
+                            <button class="btn btn-gold" onclick="switchPage('add-customer')">
+              <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+              Add New Customer
+            </button>
+                            <button class="btn btn-secondary" style="border-color: var(--gold-color); color: var(--gold-light);" onclick="switchPage('customers')">
+              View Customer Directory
+            </button>
+                        </div>
+                    </div>
+                    <div class="hero-visual" style="max-width: 35%; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
+                        <!-- SVG Decorative Mandala/Logo -->
+                        <svg viewBox="0 0 100 100" width="140" height="140" style="opacity: 0.85; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));">
+            <circle cx="50" cy="50" r="45" fill="none" stroke="var(--gold-color)" stroke-width="1.5" />
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold-color)" stroke-width="0.5" stroke-dasharray="2,2" />
+            <!-- Decorative petals -->
+            <path d="M50,10 C53,25 47,25 50,10 Z" fill="var(--gold-color)" />
+            <path d="M50,90 C53,75 47,75 50,90 Z" fill="var(--gold-color)" />
+            <path d="M10,50 C25,53 25,47 10,50 Z" fill="var(--gold-color)" />
+            <path d="M90,50 C75,53 75,47 90,50 Z" fill="var(--gold-color)" />
+            <path d="M21.7,21.7 C32.3,32.3 28.3,32.3 21.7,21.7 Z" fill="var(--gold-color)" />
+            <path d="M78.3,78.3 C67.7,67.7 71.7,67.7 78.3,78.3 Z" fill="var(--gold-color)" />
+            <path d="M21.7,78.3 C32.3,67.7 28.3,67.7 21.7,78.3 Z" fill="var(--gold-color)" />
+            <path d="M78.3,21.7 C67.7,32.3 71.7,32.3 78.3,21.7 Z" fill="var(--gold-color)" />
+            <circle cx="50" cy="50" r="15" fill="none" stroke="var(--gold-color)" stroke-width="1" />
+            <path d="M50,38 L50,62 M38,50 L62,50" stroke="var(--gold-color)" stroke-width="1" />
+            <circle cx="50" cy="50" r="4" fill="var(--gold-color)" />
+          </svg>
+                    </div>
+                </div>
+
+                <!-- Stats Summary -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Customers</h3>
+                            <div id="stat-total-customers" class="stat-value">0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: var(--info);">
+                            <svg viewBox="0 0 24 24"><path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Billed</h3>
+                            <div id="stat-total-billed" class="stat-value">₹0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: var(--success);">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Payments Received</h3>
+                            <div id="stat-total-paid" class="stat-value">₹0</div>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon" style="color: var(--warning);">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Outstanding Balance</h3>
+                            <div id="stat-outstanding-balance" class="stat-value" style="color: var(--warning);">₹0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Customers or Activity Section -->
+                <div class="card">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary-color); margin-bottom: 1rem;">Quick Actions</h3>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;">Use these quick tools to manage your day-to-day work at Lakshmi Boutique.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" onclick="switchPage('customers')">
+            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+            Search Customers
+          </button>
+                        <button class="btn btn-secondary" onclick="exportData()">
+            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 15l-7 7-7-7h4v-5h6v5h4z"/></svg>
+            Export Backup
+          </button>
+                        <button class="btn btn-secondary" onclick="document.getElementById('import-file-input').click()">
+            <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM12 9l5 5h-3v5h-4v-5H7l5-5z"/></svg>
+            Import Backup
+          </button>
+                        <input type="file" id="import-file-input" style="display:none;" onchange="importData(event)">
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= CUSTOMERS PAGE ================= -->
+            <div id="page-customers" class="page-view">
+                <div class="header">
+                    <div class="header-title">
+                        <h2>Customer Directory</h2>
+                        <p>Search, filter, and view details of boutique customers.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="switchPage('add-customer')">
+          <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Add New Customer
+        </button>
+                </div>
+
+                <!-- Search and Filter Bar -->
+                <div class="search-container">
+                    <div class="search-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        <input type="text" id="customer-search-input" class="form-control" placeholder="Search by name, phone, or items..." oninput="filterCustomers()">
+                    </div>
+                    <select id="balance-filter" class="form-control" style="max-width: 200px;" onchange="filterCustomers()">
+          <option value="all">All Customers</option>
+          <option value="has-balance">Pending Balance</option>
+          <option value="fully-paid">Fully Paid</option>
+        </select>
+                </div>
+
+                <!-- Customer Cards List -->
+                <div id="customer-cards-list" class="customer-grid">
+                    <!-- Dynmically loaded customer cards will appear here -->
+                    <div class="card" style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+                        <p style="color: var(--text-light);">No customers saved yet. Add a customer to get started!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= ADD / EDIT CUSTOMER PAGE ================= -->
+            <div id="page-add-customer" class="page-view">
+                <div class="header">
+                    <div class="header-title">
+                        <h2 id="add-customer-header-text">Add New Customer</h2>
+                        <p>Fill out the primary contact information below.</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <form id="customer-form" onsubmit="saveCustomer(event)">
+                        <input type="hidden" id="edit-customer-id">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="cust-name">Full Name *</label>
+                                <input type="text" id="cust-name" class="form-control" placeholder="Enter customer's full name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="cust-phone">Phone Number *</label>
+                                <input type="tel" id="cust-phone" class="form-control" placeholder="10-digit mobile number" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="cust-email">Email Address</label>
+                                <input type="email" id="cust-email" class="form-control" placeholder="customer@example.com">
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label" for="cust-address">Delivery Address</label>
+                                <input type="text" id="cust-address" class="form-control" placeholder="Street, City, pincode">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="cust-notes">Special Preferences / Design Notes</label>
+                            <textarea id="cust-notes" class="form-control" rows="3" placeholder="e.g. Likes pot neck blouses, side zippers, prefers hand-embroidery work..."></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 1.5rem;">
+                            <button type="button" class="btn btn-secondary" onclick="cancelCustomerEdit()">Cancel</button>
+                            <button type="submit" class="btn btn-primary">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+              Save Customer Details
+            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- ================= CUSTOMER DETAIL PROFILE PAGE ================= -->
+            <div id="page-customer-profile" class="page-view">
+                <div class="header">
+                    <div class="header-title">
+                        <h2>Customer Profile</h2>
+                        <p>Manage measurements, purchases, and payments.</p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="switchPage('customers')">
+          <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+          Back to Directory
+        </button>
+                </div>
+
+                <div class="profile-layout">
+                    <!-- Profile Sidebar Card -->
+                    <aside class="profile-sidebar">
+                        <div class="card profile-summary-card">
+                            <div id="profile-avatar" class="profile-avatar">LB</div>
+                            <h3 id="profile-name">Customer Name</h3>
+                            <p id="profile-phone" style="margin-bottom: 0.2rem;">+91 9876543210</p>
+                            <p id="profile-email" style="font-size: 0.8rem;">customer@email.com</p>
+
+                            <div id="profile-address-box" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-light); text-align: left; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                                <strong>Address:</strong> <span id="profile-address">Hyderabad, India</span>
+                            </div>
+
+                            <div id="profile-notes-box" style="margin-bottom: 1.5rem; font-size: 0.85rem; color: var(--text-light); text-align: left;">
+                                <strong>Boutique Notes:</strong>
+                                <div id="profile-notes" style="background-color: var(--bg-color); padding: 0.5rem; border-radius: 6px; margin-top: 0.3rem; border: 1px solid var(--border-color); font-style: italic;">No specific preferences recorded.</div>
+                            </div>
+
+                            <div class="profile-actions">
+                                <button class="btn btn-primary" onclick="openRecordPurchaseModal()">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                Record Purchase
+              </button>
+                                <button class="btn btn-secondary" onclick="openRecordPaymentModal()">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                Record Payment
+              </button>
+                                <button class="btn btn-secondary" onclick="window.print()">
+                <svg viewBox="0 0 24 24"><path d="M19 8H5c-1.66 0-3 1.34-3 3v6h4v4h12v-4h4v-6c0-1.66-1.34-3-3-3zm-3 11H8v-5h8v5zm3-7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-1-9H6v4h12V3z"/></svg>
+                Print Profile Sheet
+              </button>
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin-top: 0.5rem;">
+                                    <button class="btn btn-secondary" style="padding: 0.5rem;" onclick="editCurrentCustomer()">
+                  <svg viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+                  Edit Info
+                </button>
+                                    <button class="btn btn-danger" style="padding: 0.5rem;" onclick="confirmDeleteCustomer()">
+                  <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+                  Delete
+                </button>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Profile Tabs Area -->
+                    <div style="flex: 1;">
+                        <div class="profile-tabs">
+                            <button id="tab-btn-measurements" class="profile-tab-btn active" onclick="switchProfileTab('measurements')">Tailoring Measurements</button>
+                            <button id="tab-btn-purchases" class="profile-tab-btn" onclick="switchProfileTab('purchases')">Purchases & Payments</button>
+                        </div>
+
+                        <!-- Measurements View -->
+                        <div id="profile-tab-measurements" class="profile-tab-content active">
+                            <form id="measurements-form" onsubmit="saveMeasurements(event)">
+                                <div class="card">
+                                    <div class="measurements-container">
+                                        <!-- Blouse Measurements -->
+                                        <div>
+                                            <div class="measurement-section-title">
+                                                <span>Blouse Measurements</span>
+                                                <span style="font-size: 0.75rem; color: var(--text-light); font-weight: normal;">inches (")</span>
+                                            </div>
+                                            <div class="measurement-grid">
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Length</label>
+                                                    <input type="text" id="meas-blouse-length" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Chest</label>
+                                                    <input type="text" id="meas-blouse-chest" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Waist</label>
+                                                    <input type="text" id="meas-blouse-waist" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Shoulder</label>
+                                                    <input type="text" id="meas-blouse-shoulder" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Sleeve L.</label>
+                                                    <input type="text" id="meas-blouse-sleeveLength" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Sleeve R.</label>
+                                                    <input type="text" id="meas-blouse-sleeveRound" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Front Neck</label>
+                                                    <input type="text" id="meas-blouse-frontNeck" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Back Neck</label>
+                                                    <input type="text" id="meas-blouse-backNeck" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Arm Hole</label>
+                                                    <input type="text" id="meas-blouse-armHole" placeholder="-">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Kurti/Dress Measurements -->
+                                        <div>
+                                            <div class="measurement-section-title">
+                                                <span>Dress / Kurti / Suit</span>
+                                                <span style="font-size: 0.75rem; color: var(--text-light); font-weight: normal;">inches (")</span>
+                                            </div>
+                                            <div class="measurement-grid">
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Kurti L.</label>
+                                                    <input type="text" id="meas-dress-kurtiLength" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Bottom L.</label>
+                                                    <input type="text" id="meas-dress-bottomLength" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Bust</label>
+                                                    <input type="text" id="meas-dress-bust" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Waist</label>
+                                                    <input type="text" id="meas-dress-waist" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Hips</label>
+                                                    <input type="text" id="meas-dress-hips" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Shoulder</label>
+                                                    <input type="text" id="meas-dress-shoulder" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Sleeve L.</label>
+                                                    <input type="text" id="meas-dress-sleeve" placeholder="-">
+                                                </div>
+                                                <div class="measurement-input-wrapper">
+                                                    <label>Arm Hole</label>
+                                                    <input type="text" id="meas-dress-armHole" placeholder="-">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div style="display: flex; justify-content: flex-end; margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                                        <button type="submit" class="btn btn-primary">
+                    <svg viewBox="0 0 24 24"><path d="M17 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V7l-4-4zm-5 16c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-10H5V5h10v4z"/></svg>
+                    Save Measurements
+                  </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Purchases & Payments View -->
+                        <div id="profile-tab-purchases" class="profile-tab-content">
+                            <div class="card" style="padding: 0; overflow: hidden;">
+                                <table class="history-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Type</th>
+                                            <th>Details / Items</th>
+                                            <th style="text-align: right;">Charges (₹)</th>
+                                            <th style="text-align: right;">Paid (₹)</th>
+                                            <th style="text-align: right;">Balance (₹)</th>
+                                            <th style="text-align: center; width: 150px;" class="no-print">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="profile-financial-records">
+                                        <!-- Loaded dynamically via js -->
+                                        <tr>
+                                            <td colspan="7" style="text-align: center; color: var(--text-light); padding: 3rem;">No purchase history found. Click "Record Purchase" to add items.</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <!-- Grand Totals Summary -->
+                                <div style="padding: 0 2rem 2rem;">
+                                    <div class="total-summary-bar">
+                                        <div class="summary-item">
+                                            <label>Total Billed</label>
+                                            <span id="profile-total-billed">₹0</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <label>Total Paid</label>
+                                            <span id="profile-total-paid" style="color: var(--success);">₹0</span>
+                                        </div>
+                                        <div class="summary-item">
+                                            <label>Remaining Balance</label>
+                                            <span id="profile-remaining-balance" class="outstanding">₹0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= BACKUP & RESTORE PAGE ================= -->
+            <div id="page-backup" class="page-view">
+                <div class="header">
+                    <div class="header-title">
+                        <h2>Backup & Restore Settings</h2>
+                        <p>Export your data to a secure file or restore an existing backup.</p>
+                    </div>
+                </div>
+
+                <div class="card" style="max-width: 600px;">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary-color); margin-bottom: 0.8rem;">Export Database</h3>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;">Save your entire Lakshmi Boutique customer database (including measurements, items, and billing details) to a file on your computer. Keep this file safe as a regular backup.</p>
+                    <button class="btn btn-primary" onclick="exportData()">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM19 15l-7 7-7-7h4v-5h6v5h4z"/></svg>
+          Export Data to File (.json)
+        </button>
+
+                    <div style="border-top: 1px solid var(--border-color); margin: 2rem 0;"></div>
+
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--primary-color); margin-bottom: 0.8rem;">Import / Restore Database</h3>
+                    <p style="color: var(--text-light); margin-bottom: 1.5rem;"><strong style="color: var(--warning);">Warning:</strong> Importing a backup file will overwrite all current customer records in this browser. Please make sure you have backed up any current data before proceeding.</p>
+                    <button class="btn btn-secondary" onclick="document.getElementById('import-file-settings').click()">
+          <svg viewBox="0 0 24 24"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM12 9l5 5h-3v5h-4v-5H7l5-5z"/></svg>
+          Select Backup File to Import
+        </button>
+                    <input type="file" id="import-file-settings" style="display:none;" onchange="importData(event)">
+                </div>
+            </div>
+
+        </main>
+
+        <!-- ================= MODALS ================= -->
+
+        <!-- Record Purchase Modal -->
+        <div id="modal-purchase" class="modal-overlay">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3 id="purchase-modal-title">Record New Purchase / Tailoring Work</h3>
+                    <button class="modal-close" onclick="closeModal('modal-purchase')">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+                </div>
+                <form id="purchase-form" onsubmit="savePurchase(event)">
+                    <div class="modal-body">
+                        <input type="hidden" id="pur-id">
+                        <div class="form-group">
+                            <label class="form-label" for="pur-items">Item Details *</label>
+                            <input type="text" id="pur-items" class="form-control" placeholder="e.g. Silk Saree, Blouse Stitching, Dupatta" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label" for="pur-total">Total Price (₹) *</label>
+                                <input type="number" id="pur-total" class="form-control" placeholder="0" min="0" required oninput="calculateModalBalance('purchase')">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="pur-paid">Paid Amount (₹) *</label>
+                                <input type="number" id="pur-paid" class="form-control" placeholder="0" min="0" required oninput="calculateModalBalance('purchase')">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Remaining Balance (₹)</label>
+                            <input type="text" id="pur-balance" class="form-control" style="background-color: var(--bg-color); font-weight: 700; color: var(--warning);" value="0" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-purchase')">Cancel</button>
+                        <button type="submit" id="purchase-modal-submit-btn" class="btn btn-primary">Add Purchase</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Record Payment Modal -->
+        <div id="modal-payment" class="modal-overlay">
+            <div class="modal-card">
+                <div class="modal-header">
+                    <h3>Record Payment Receipt</h3>
+                    <button class="modal-close" onclick="closeModal('modal-payment')">
+          <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+                </div>
+                <form id="payment-form" onsubmit="savePayment(event)">
+                    <div class="modal-body">
+                        <div class="form-group" style="background-color: rgba(216, 67, 21, 0.05); padding: 1rem; border-radius: 8px; border: 1px solid rgba(216, 67, 21, 0.1); margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
+                            <span style="font-weight: 600; color: var(--warning);">Outstanding Balance:</span>
+                            <span id="payment-outstanding-max" style="font-size: 1.25rem; font-weight: 700; color: var(--warning);">₹0</span>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pay-amount">Amount Paid Now (₹) *</label>
+                            <input type="number" id="pay-amount" class="form-control" placeholder="0" min="1" required oninput="calculateModalBalance('payment')">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="pay-method">Payment Details / Notes</label>
+                            <input type="text" id="pay-method" class="form-control" placeholder="e.g. GPay, Cash, Bank Transfer">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">New Remaining Balance (₹)</label>
+                            <input type="text" id="pay-balance" class="form-control" style="background-color: var(--bg-color); font-weight: 700;" value="0" readonly>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="closeModal('modal-payment')">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Record Payment</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Firebase SDKs (Compat Version) -->
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+        <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+        <script src="app.js"></script>
+    </div>
+</body>
+
+</html>
